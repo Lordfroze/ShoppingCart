@@ -1,23 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Product from '../views/product/Index.vue' // import dari folder product
+import ProductDetail from '../views/product/Detail.vue' // import dari folder product
+import Cart from '../views/cart/Index.vue' // import dari folder cart
+
+
 
 Vue.use(VueRouter)
-
+// menyiapkan route
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/',  // url
+    name: 'product', //name dipanggil dari App.vue
+    component: Product // component yang akan ditampilkan
+  },
+
+  {
+    path: '/product/:id',
+    name: 'product-detail',
+    component: ProductDetail
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/cart',
+    name: 'cart',
+    component: Cart
+  },
+
 ]
 
 const router = new VueRouter({
